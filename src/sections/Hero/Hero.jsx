@@ -93,14 +93,13 @@ function Hero() {
       <canvas className="hero__canvas" ref={canvasRef} />
       <div className="hero__overlay" />
       <div className="hero__content">
-        <p className="hero__eyebrow">★ Fuego lento. Sabor eterno. ★</p>
+        <p className="hero__eyebrow">★ La Plata - Bs As - Argentina ★</p>
         <h1 className="hero__title">
-           ALK<span>AMAD<Logo width={95}/></span>
+           ALK<span>AMAD<Logo className='logo-titulo'/></span>
         </h1>
         <p className="hero__sub">
           Ahumados artesanales con fuego de quebracho y tiempo sin apuro.
         </p>
-        <a href="#menu" className="hero__cta">Ver el menú</a>
       </div>
       <div className="hero__scroll2">
         <ScrollIndicator />

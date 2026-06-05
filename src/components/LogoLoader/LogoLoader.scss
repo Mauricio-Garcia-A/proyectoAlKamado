@@ -1,0 +1,34 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.logo-loader {
+  position: relative;
+  @include flex-center;
+
+  .contenedor_text_logo {
+    position: absolute;
+    transform: scale(0.45);
+    //top: 0;
+  }
+
+  &__ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    animation: spinRing linear infinite;
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 2;
+    font-family: $font-display;
+    letter-spacing: 0.1em;
+    color: $color-bone;
+    @include flex-center;
+  }
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

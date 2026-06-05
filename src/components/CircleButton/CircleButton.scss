@@ -10,6 +10,8 @@
   background: none;
   border: none;
   outline: none;
+  transition: all 0.5s ease;
+
 
   &__text {
     position: relative;
@@ -20,16 +22,21 @@
     color: $color-bone;
     text-align: center;
     line-height: 1.2;
-    transition: filter 0.3s ease;
+    opacity: 0.6;
+    transition: all 0.3s ease;
     pointer-events: none;
   }
 
   &__inner-ring {
     position: absolute;
-    inset: 20px;
+    inset: 30px;
     border-radius: 50%;
-    border: 1px solid rgba($color-bone, 0.3);
+    border: 1px solid rgba($color-bone, 0.2);
     pointer-events: none;
+    background: rgba($color-bone, 0.07);
+    backdrop-filter: blur(50%);
+    transition: all 0.5s ease;
+
   }
 
   &__svg {
@@ -38,22 +45,19 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+    overflow: visible;
 
     .ring-track {
       fill: none;
-      stroke: rgba($color-bone, 0.08);
+      stroke: rgba($color-bone, 0.02);
       stroke-width: 1;
     }
 
-    .ring-idle {
-      fill: none;
-      stroke: rgba($color-bone, 0.4);
-      stroke-width: 1;
-      stroke-linecap: round;
-      stroke-dasharray: 75 200;
-      stroke-dashoffset: 0;
-      animation: rotateIdle 6s linear infinite;
-      transform-origin: center;
+    // El rect que recibe el gradiente y se anima como el arco
+    .ring-idle-rect {
+      animation: rotateIdle 3s linear infinite;
+      transform-origin: 50px 50px;
+      transition: all 0.3s ease;
     }
 
     .ring-hover {
@@ -63,29 +67,33 @@
       stroke-linecap: round;
       stroke-dasharray: 283;
       stroke-dashoffset: 283;
-      transform-origin: center;
+      transform-origin: 50px 50px;
       transform: rotate(-90deg);
       transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
   &:hover {
-    .ring-hover {
-      stroke-dashoffset: 0;
+    width: 200px;
+    height: 200px;
+    
+    .explore-btn__inner-ring {
+      border: 1.5px solid rgba($color-bone, 1);
+      inset: 29px;
     }
-
-    .ring-idle {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
     .explore-btn__text {
-      filter: drop-shadow(0 0 8px rgba($color-bone, 0.6));
+      opacity: 1;
     }
+    
   }
 }
 
 @keyframes rotateIdle {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
