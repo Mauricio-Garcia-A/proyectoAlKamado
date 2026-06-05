@@ -1,0 +1,84 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/standars.scss' as *;
+
+.process {
+  @include section-padding;
+  background: $color-char;
+
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.9;
+    color: $color-bone;
+    margin-bottom: 4rem;
+  }
+
+  &__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid rgba($color-ash, 0.15);
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.step {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba($color-ash, 0.15);
+
+  @include respond-to(tablet) {
+    &:nth-child(2n) { border-right: none; }
+    border-bottom: 1px solid rgba($color-ash, 0.15);
+  }
+
+  @include respond-to(mobile) {
+    border-right: none;
+    border-bottom: 1px solid rgba($color-ash, 0.15);
+  }
+
+  &:last-child {
+    border-right: none;
+
+    @include respond-to(tablet) {
+      border-bottom: none;
+    }
+  }
+
+  &__num {
+    font-family: $font-display;
+    font-size: 4rem;
+    color: rgba($color-ember, 0.2);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  &__name {
+    font-family: $font-body;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-bone;
+    margin-bottom: 0.8rem;
+  }
+
+  &__desc {
+    font-family: $font-serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: $color-ash;
+    line-height: 1.6;
+  }
+}

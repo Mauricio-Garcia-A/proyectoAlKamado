@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@300;400;600;700&display=swap');
+
+h1, h2, h3, h4 {
+  font-family: $font-display;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+}
+
+p {
+  font-family: $font-body;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: $color-ember;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: $color-ember;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,9 @@
+.container-sections {
+ scroll-snap-type: y mandatory;
+}
+
+.section-standar {
+  height: auto;
+  min-height: 100vh;
+   scroll-snap-align: start;
+}

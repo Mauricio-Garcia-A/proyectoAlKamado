@@ -1,0 +1,157 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/standars.scss' as *;
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 3rem 5rem;
+  overflow: hidden;
+  background-image: url('/Images/background-HERO.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include respond-to(tablet) {
+    padding: 0 1.5rem 4rem;
+  }
+
+  &__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba($color-char, 1) 0%,
+      rgba($color-char, 0.6) 30%,
+      rgba($color-char, 0.2) 100%
+    );
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: $color-ember;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(5rem, 13vw, 12rem);
+    line-height: 0.85;
+    color: $color-bone;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+
+    span {
+      display: block;
+      color: $color-ember;
+      text-shadow: 0 0 80px rgba($color-ember, 0.4);
+    }
+  }
+
+  &__sub {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: $color-ash;
+    max-width: 340px;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  &__cta {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    border: 1.5px solid $color-ember;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $color-bone;
+    transition: background 0.2s, color 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+
+    &:hover {
+      background: $color-ember;
+      color: $color-char;
+    }
+  }
+  &__scroll2 {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 1s 1.2s forwards;
+ 
+}
+
+  &__scroll {
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1s 1.2s forwards;
+  }
+
+  &__scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, $color-ember, transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  &__scroll-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: $color-ash;
+    writing-mode: vertical-rl;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+

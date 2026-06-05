@@ -1,0 +1,43 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/standars.scss' as *;
+
+.contact {
+  @include section-padding;
+  background: $color-ember;
+  text-align: center;
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(3rem, 7vw, 7rem);
+    color: $color-char;
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  &__sub {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba($color-char, 0.6);
+    margin-bottom: 2.5rem;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 2px solid $color-char;
+    font-family: $font-body;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $color-char;
+    transition: all 0.2s;
+
+    &:hover {
+      background: $color-char;
+      color: $color-ember;
+    }
+  }
+}

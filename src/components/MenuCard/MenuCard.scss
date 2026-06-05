@@ -1,0 +1,58 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.menu-card {
+  background: $color-char;
+  padding: 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border: 1px solid rgba($color-ash, 0.08);
+
+  &:hover {
+    background: rgba($color-smoke, 0.8);
+  }
+
+  &__top {
+    @include flex-between;
+    align-items: flex-start;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    color: $color-bone;
+  }
+
+  &__price {
+    font-family: $font-display;
+    font-size: 1.4rem;
+    color: $color-ember;
+    white-space: nowrap;
+  }
+
+  &__desc {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: $color-ash;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid rgba($color-ember, 0.3);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-ember;
+    align-self: flex-start;
+  }
+}

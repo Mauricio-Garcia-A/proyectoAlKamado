@@ -1,0 +1,26 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.menu-page {
+  min-height: 100vh;
+  background: $color-smoke;
+  padding-top: 5rem;
+
+  &__header {
+    padding: 3rem 3rem 0;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @include respond-to(tablet) {
+      padding: 2rem 1.5rem 0;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.9;
+    color: $color-bone;
+    margin-top: 0.5rem;
+  }
+}
