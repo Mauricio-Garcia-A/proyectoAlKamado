@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/alkamado/"     element={<Home />}     />
-        <Route path="/alkamado/menu" element={<MenuPage />} />
+        <Route path="/proyectoAlKamado/"     element={<Home />}     />
+        <Route path="/proyectoAlKamado/menu" element={<MenuPage />} />
          <Route path="/"     element={<Home />}     />
         <Route path="/menu" element={<MenuPage />} />
       </Routes>
