@@ -8,14 +8,17 @@ import Contact  from '../sections/Contact/Contact'
 
 function Home() {
   return (
-    <main>
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Menu />
-      <Process />
-      <Contact />
-    </main>
+      <main>
+        <Hero />
+        <About />
+        <Menu />
+        <Process />
+        <Contact />
+      </main>
+    </>
+    
   )
 }
 

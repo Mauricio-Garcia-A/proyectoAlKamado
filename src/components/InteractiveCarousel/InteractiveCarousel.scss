@@ -1,0 +1,116 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.icarousel {
+  width: 100%;
+  height: 90vh;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+
+
+  .container-controsls {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .icarousel__canvas {
+
+      width: 100% !important;
+      height: 100% !important;
+
+    }
+
+    .icarousel__nav {
+
+      z-index: 2;
+      display: flex;
+      gap: 1rem;
+    }
+
+  }
+
+
+  &__content {
+    bottom: 5rem;
+
+    z-index: 2;
+    pointer-events: none;
+  }
+
+
+
+
+  &__slide {
+    max-width: 420px;
+
+    &-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: $color-ember;
+      margin-bottom: 0.8rem;
+    }
+
+    &-title {
+      font-family: $font-display;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 0.9;
+      color: $color-bone;
+      margin-bottom: 1rem;
+    }
+
+    &-desc {
+      font-family: $font-serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: $color-ash;
+    }
+  }
+
+
+
+  &__nav-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba($color-bone, 0.2);
+    background: transparent;
+    color: rgba($color-bone, 0.4);
+    font-family: $font-display;
+    font-size: 1rem;
+    cursor: pointer;
+    @include flex-center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: rgba($color-bone, 0.5);
+      color: rgba($color-bone, 0.7);
+    }
+
+    &--active {
+      border-color: rgba($color-bone, 0.8);
+      color: $color-bone;
+      background: rgba($color-bone, 0.05);
+      box-shadow: 0 0 20px rgba($color-bone, 0.08);
+    }
+  }
+
+  @include respond-to(tablet) {
+    flex-direction: column-reverse;
+
+    .container-controsls {
+
+      max-height: 300px;
+    }
+  }
+}

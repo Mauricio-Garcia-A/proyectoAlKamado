@@ -4,14 +4,22 @@ import './CircleButton.scss'
 const R   = 45
 const CIR = 2 * Math.PI * R
 
-function ExploreButton() {
+function CircleButton({ text = 'TEXTO\nBOTON', to = '/', onClick }) {
   const navigate = useNavigate()
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    } else {
+      navigate(to)
+    }
+  }
 
   return (
     <button
       className="explore-btn"
-      onClick={() => navigate('/menu')}
-      aria-label="Ver menú"
+      onClick={handleClick}
+      aria-label={text.replace('\n', ' ')}
     >
       <div className="explore-btn__inner-ring" />
 
@@ -52,10 +60,27 @@ function ExploreButton() {
       </svg>
 
       <span className="explore-btn__text">
-        VER<br />MENÚ
+        {text.split('\n').map((line, i) => (
+          <span key={i}>{line}{i < text.split('\n').length - 1 && <br />}</span>
+        ))}
       </span>
     </button>
   )
 }
 
-export default ExploreButton
+export default CircleButton
+
+
+
+/* ------------  IMPLEMENTACION ----------------
+
+// navegación a ruta
+<CircleButton to="/menu" text="VER\nMENÚ" />
+
+// con onClick personalizado
+<CircleButton text="VER\nMÁS" onClick={() => console.log('click')} />
+
+// texto personalizado
+<CircleButton to="/contacto" text="CONTACTO" />
+
+*/

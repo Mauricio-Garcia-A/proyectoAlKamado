@@ -15,7 +15,7 @@ function Menu() {
           </p>
         </div>
         <div className="menu__right">
-          <CircleButton />
+          <CircleButton to="/menu" text="VER MENÚ" />
         </div>
       </div>
     </section>
