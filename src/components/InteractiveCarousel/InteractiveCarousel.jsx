@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useGLTF, OrbitControls } from '@react-three/drei'
+import { useGLTF, OrbitControls, Billboard } from '@react-three/drei'
 import gsap from 'gsap'
 import * as THREE from 'three'
 import './InteractiveCarousel.scss'
+
 
 const slides = [
   {
@@ -30,33 +31,46 @@ const slides = [
 
 // ── NODOS ORBITALES ──
 function OrbitalRing({ current, onSelect }) {
-  const groupRef = useRef()
-  const nodesRef = useRef([])
-  const { camera } = useThree()
-  const total = slides.length
-  // OrbitalRing - RADIUS
+  const groupRef  = useRef()
+  const nodesRef  = useRef([])
+  const scalesRef = useRef(slides.map(() => 1))
+  const pulseRef  = useRef(slides.map(() => 0))
+  const [hovered, setHovered] = useState(-1)
+  const total  = slides.length
   const RADIUS = 2.5
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (!groupRef.current) return
     groupRef.current.rotation.y += 0.003
-
-    // mouse tracking sutil
-    const mx = state.mouse.x * 0.15
     const my = state.mouse.y * 0.08
     groupRef.current.rotation.x += (my - groupRef.current.rotation.x) * 0.05
+
+    slides.forEach((_, i) => {
+      const isActive  = current === i
+      const isHovered = hovered === i
+      const target    = isActive ? 1.4 : isHovered ? 1.15 : 1
+      scalesRef.current[i] += (target - scalesRef.current[i]) * 0.1
+
+      if (nodesRef.current[i]) {
+        const s = scalesRef.current[i]
+        nodesRef.current[i].scale.set(s, s, s)
+      }
+
+      if (isActive) {
+        pulseRef.current[i] = (pulseRef.current[i] + delta * 0.8) % 1
+      } else {
+        pulseRef.current[i] = 0
+      }
+    })
   })
 
   return (
-
-    // OrbitalRing - posición vertical del anillo
-    // en el group del anillo agregá:
     <group ref={groupRef} position={[0, 0.25, 0]}>
       {/* anillo punteado */}
       {Array.from({ length: 80 }).map((_, i) => {
         const angle = (i / 80) * Math.PI * 2
-        const x = Math.cos(angle) * RADIUS
-        const z = Math.sin(angle) * RADIUS
+        const x     = Math.cos(angle) * RADIUS
+        const z     = Math.sin(angle) * RADIUS
         return (
           <mesh key={i} position={[x, 0, z]}>
             <sphereGeometry args={[0.015, 6, 6]} />
@@ -65,38 +79,54 @@ function OrbitalRing({ current, onSelect }) {
         )
       })}
 
-      {/* nodos interactivos */}
+      {/* nodos */}
       {slides.map((_, i) => {
-        const angle = (i / total) * Math.PI * 2
-        const x = Math.cos(angle) * RADIUS
-        const z = Math.sin(angle) * RADIUS
+        const angle    = (i / total) * Math.PI * 2
+        const x        = Math.cos(angle) * RADIUS
+        const z        = Math.sin(angle) * RADIUS
         const isActive = current === i
+        const isHover  = hovered === i
 
-        return (
-          <group key={i} position={[x, 0, z]}>
-            {/* anillo exterior del nodo */}
-            <mesh
-              ref={el => nodesRef.current[i] = el}
-              onClick={() => onSelect(i)}
-              onPointerOver={() => document.body.style.cursor = 'pointer'}
-              onPointerOut={() => document.body.style.cursor = 'default'}
-            >
+        const nodeInner = (
+          <group ref={el => nodesRef.current[i] = el}>
+            {isActive && <PulseRing offset={0}   />}
+            {isActive && <PulseRing offset={0.5} />}
+
+            <mesh>
               <torusGeometry args={[0.12, 0.008, 8, 32]} />
               <meshBasicMaterial
-                color={isActive ? '#e8ddd0' : '#8a7d72'}
-                opacity={isActive ? 1 : 0.5}
+                color={isActive || isHover ? '#e8ddd0' : '#8a7d72'}
+                opacity={isActive ? 1 : isHover ? 0.8 : 0.5}
                 transparent
               />
             </mesh>
-            {/* punto central */}
+
             <mesh>
-              <sphereGeometry args={[isActive ? 0.045 : 0.025, 12, 12]} />
+              <sphereGeometry args={[0.035, 12, 12]} />
               <meshBasicMaterial
-                color={isActive ? '#e8ddd0' : '#8a7d72'}
-                opacity={isActive ? 1 : 0.4}
+                color={isActive || isHover ? '#e8ddd0' : '#8a7d72'}
+                opacity={isActive ? 1 : isHover ? 0.7 : 0.4}
                 transparent
               />
             </mesh>
+
+            <mesh
+              onClick={(e)       => { e.stopPropagation(); onSelect(i) }}
+              onPointerOver={(e) => { e.stopPropagation(); setHovered(i); document.body.style.cursor = 'pointer' }}
+              onPointerOut={(e)  => { e.stopPropagation(); setHovered(-1); document.body.style.cursor = 'default' }}
+            >
+              <sphereGeometry args={[0.1, 8, 8]} />
+              <meshBasicMaterial transparent opacity={0} />
+            </mesh>
+          </group>
+        )
+
+        return (
+          <group key={i} position={[x, 0, z]} rotation={[0, -angle, 0]}>
+            {isActive
+              ? <Billboard>{nodeInner}</Billboard>
+              : nodeInner
+            }
           </group>
         )
       })}
@@ -104,6 +134,35 @@ function OrbitalRing({ current, onSelect }) {
   )
 }
 
+
+
+// ── PULSO RADAR ──
+function PulseRing({ offset }) {
+  const ref = useRef()
+  const progress = useRef(offset)
+
+  useFrame((_, delta) => {
+    if (!ref.current) return
+    progress.current = (progress.current + delta * 0.6) % 1
+
+    const scale = 0.12 + progress.current * 0.2
+    const opacity = (1 - progress.current) * 0.4
+
+    ref.current.scale.set(scale, scale, scale)
+    ref.current.material.opacity = opacity
+  })
+
+  return (
+    <mesh ref={ref}>
+      <torusGeometry args={[1, 0.015, 8, 32]} />
+      <meshBasicMaterial
+        color="#e8ddd0"
+        transparent
+        opacity={0.6}
+      />
+    </mesh>
+  )
+}
 // ── MODELO 3D ──
 function KamadoModel({ current }) {
   const { scene } = useGLTF('./kamado-3d.glb')
