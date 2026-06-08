@@ -12,10 +12,9 @@ function About() {
           <p className="section-label">Nuestra historia</p>
           <h2 className="menu__title">QUIENES SOMOS</h2>
           <p className="menu__desc">
-            Cortes seleccionados, rubs artesanales y entre 6 y 18 horas
-            de humo de quebracho.
+            Somo un pequeño enprendimiento especializado en el metodo de copsion ahomado al kamado.
           </p>
-          <CircleButton to="/nosotros" text="VER MAS" />
+          <CircleButton to="/nosotros" text="SABER MAS" />
         </div>
         <div>
           <KamadoModel />

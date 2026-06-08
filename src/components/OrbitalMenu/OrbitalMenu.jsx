@@ -73,7 +73,7 @@ function OrbitalMenu({ items = [] }) {
 
   return (
     <div className="orbital" onClick={handleBgClick}>
-      <img src='./Images/kamado-bg-menu-v1.png' className='image-bg-orbital'/>
+      <img src='/proyectoAlKamado/Images/kamado-bg-menu-v1.png' className='image-bg-orbital'/>
 
       <div className="orbital__orbit" />
 

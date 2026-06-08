@@ -29,14 +29,15 @@ const slides = [
   },
 ]
 
+
 // ── NODOS ORBITALES ──
 function OrbitalRing({ current, onSelect }) {
-  const groupRef  = useRef()
-  const nodesRef  = useRef([])
+  const groupRef = useRef()
+  const nodesRef = useRef([])
   const scalesRef = useRef(slides.map(() => 1))
-  const pulseRef  = useRef(slides.map(() => 0))
+  const pulseRef = useRef(slides.map(() => 0))
   const [hovered, setHovered] = useState(-1)
-  const total  = slides.length
+  const total = slides.length
   const RADIUS = 2.5
 
   useFrame((state, delta) => {
@@ -46,9 +47,9 @@ function OrbitalRing({ current, onSelect }) {
     groupRef.current.rotation.x += (my - groupRef.current.rotation.x) * 0.05
 
     slides.forEach((_, i) => {
-      const isActive  = current === i
+      const isActive = current === i
       const isHovered = hovered === i
-      const target    = isActive ? 1.4 : isHovered ? 1.15 : 1
+      const target = isActive ? 1.4 : isHovered ? 1.15 : 1
       scalesRef.current[i] += (target - scalesRef.current[i]) * 0.1
 
       if (nodesRef.current[i]) {
@@ -65,31 +66,31 @@ function OrbitalRing({ current, onSelect }) {
   })
 
   return (
-    <group ref={groupRef} position={[0, 0.25, 0]}>
+    <group ref={groupRef} position={[0, 0.25, 0]} rotation={[3.5,3.5, 0]}>
       {/* anillo punteado */}
-      {Array.from({ length: 80 }).map((_, i) => {
-        const angle = (i / 80) * Math.PI * 2
-        const x     = Math.cos(angle) * RADIUS
-        const z     = Math.sin(angle) * RADIUS
+      {Array.from({ length: 100 }).map((_, i) => {
+        const angle = (i / 100) * Math.PI * 2
+        const x = Math.cos(angle) * RADIUS
+        const z = Math.sin(angle) * RADIUS
         return (
           <mesh key={i} position={[x, 0, z]}>
             <sphereGeometry args={[0.015, 6, 6]} />
-            <meshBasicMaterial color="#8a7d72" opacity={0.4} transparent />
+            <meshBasicMaterial color="#8a7d72" opacity={0.25} transparent />
           </mesh>
         )
       })}
 
       {/* nodos */}
       {slides.map((_, i) => {
-        const angle    = (i / total) * Math.PI * 2
-        const x        = Math.cos(angle) * RADIUS
-        const z        = Math.sin(angle) * RADIUS
+        const angle = (i / total) * Math.PI * 2
+        const x = Math.cos(angle) * RADIUS
+        const z = Math.sin(angle) * RADIUS
         const isActive = current === i
-        const isHover  = hovered === i
+        const isHover = hovered === i
 
         const nodeInner = (
           <group ref={el => nodesRef.current[i] = el}>
-            {isActive && <PulseRing offset={0}   />}
+            {isActive && <PulseRing offset={0} />}
             {isActive && <PulseRing offset={0.5} />}
 
             <mesh>
@@ -111,9 +112,9 @@ function OrbitalRing({ current, onSelect }) {
             </mesh>
 
             <mesh
-              onClick={(e)       => { e.stopPropagation(); onSelect(i) }}
+              onClick={(e) => { e.stopPropagation(); onSelect(i) }}
               onPointerOver={(e) => { e.stopPropagation(); setHovered(i); document.body.style.cursor = 'pointer' }}
-              onPointerOut={(e)  => { e.stopPropagation(); setHovered(-1); document.body.style.cursor = 'default' }}
+              onPointerOut={(e) => { e.stopPropagation(); setHovered(-1); document.body.style.cursor = 'default' }}
             >
               <sphereGeometry args={[0.1, 8, 8]} />
               <meshBasicMaterial transparent opacity={0} />
@@ -183,7 +184,7 @@ function KamadoModel({ current }) {
 
     // animación de cámara al cambiar slide
     gsap.to(ref.current.rotation, {
-      y: ref.current.rotation.y + Math.PI * 0.25,
+     // y: ref.current.rotation.y + Math.PI * 0.25,
       duration: 0.8,
       ease: 'power2.inOut',
     })
@@ -218,6 +219,7 @@ function InteractiveCarousel() {
   const [current, setCurrent] = useState(0)
   const contentRef = useRef()
 
+
   const handleSelect = (index) => {
     if (index === current) return
 
@@ -239,6 +241,15 @@ function InteractiveCarousel() {
   }
 
   const slide = slides[current]
+
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleSelect((current + 1) % slides.length)
+    }, 8000) // cada 4 segundos
+
+    return () => clearInterval(timer)
+  }, [current])
 
   return (
     <div className="icarousel">
