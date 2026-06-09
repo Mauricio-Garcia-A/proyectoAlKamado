@@ -4,6 +4,7 @@ import About    from '../sections/About/About'
 import Menu     from '../sections/Menu/Menu'
 import Process  from '../sections/Process/Process'
 import Contact  from '../sections/Contact/Contact'
+import Carta     from '../sections/Carta/Carta'
 
 
 function Home() {
@@ -14,6 +15,7 @@ function Home() {
         <Hero />
         <About />
         <Menu />
+        <Carta />
         <Process />
         <Contact />
       </main>

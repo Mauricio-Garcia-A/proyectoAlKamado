@@ -4,6 +4,7 @@ import './Navbar.scss'
 const links = [
   { href: 'nosotros', label: 'Nosotros' },
   { href: 'menu',     label: 'Menú'     },
+  { href: 'carta',  label: 'Carta'  },
   { href: 'proceso',  label: 'Proceso'  },
   { href: 'contacto', label: 'Contacto' },
 ]
