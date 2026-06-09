@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './Navbar.scss'
+import Logo from '../Logo/Logo'
 
 const links = [
   { href: 'nosotros', label: 'Nosotros' },
@@ -65,6 +66,29 @@ function useNavState() {
   }
 }
 
+// -- LOGOS ---
+function LogoNavbar() {
+
+  return (
+    <div className='logo-navbar'>
+      <p>ALK<span>A</span>MADO</p>
+      <p className='subtitulo'>AHUMADOS</p>
+      <Logo className='logo-titulo'/>
+    </div>
+  )
+}
+function LogoNavbarMovil() {
+
+  return (
+    <div className='logo-navbar-movil'>
+      <p>A<span>K</span></p>
+      <p className='subtitulo'>AHUMADOS</p>
+      <Logo className='logo-titulo'/>
+    </div>
+  )
+}
+
+
 // ── DESKTOP ──
 function NavbarDesktop() {
   const {
@@ -94,7 +118,7 @@ function NavbarDesktop() {
   return (
     <nav className="navbar navbar--desktop">
       <a href="#inicio" className="navbar__logo">
-        ALK<span>A</span>MADO
+        <LogoNavbar />
       </a>
       <ul className="navbar__links">
         {links.map(link => (
@@ -175,7 +199,7 @@ function NavbarMobile() {
   return (
     <div className="navbar navbar--mobile">
       <a href="#inicio" className="navbar__logo">
-        ALK<span>A</span>MADO
+        <LogoNavbarMovil />
       </a>
       <div className="mobile-nav">
         <div className="mobile-nav__circle-wrap">

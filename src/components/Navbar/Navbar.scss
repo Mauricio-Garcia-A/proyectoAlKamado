@@ -1,6 +1,124 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+
+.logo-navbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  width: fit-content;
+  height: 80px;
+
+  p {
+    font-family: $font-display;
+    font-size: 1.7rem;
+    letter-spacing: 0.15em;
+    color: $color-bone;
+    position: relative;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    line-height: 0.8;
+  }
+
+  .subtitulo {
+    position: relative;
+    z-index: 99;
+    font-family: $font-display;
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.184);
+    padding: 0;
+    margin: 0;
+    
+  }
+
+  span {
+    color: $color-ember;
+  }
+
+  svg {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    /* Lo mueve al centro del contenedor */
+    transform: translateX(-50%);
+    z-index: 90;
+    opacity: 0.3;
+    padding: 0;
+    margin: 0;
+    height: 80px;
+
+
+  }
+
+}
+
+.logo-navbar-movil {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  width: fit-content;
+  height: 80px;
+
+  p {
+    font-family: $font-display;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: $color-bone;
+    position: relative;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    line-height: 0.8;
+  }
+
+  .subtitulo {
+    position: relative;
+    z-index: 99;
+    font-family: $font-display;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    color: rgb(0, 0, 0);
+    //-webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.184);
+    padding: 0;
+    margin: 0;
+    
+  }
+
+  span {
+    color: $color-ember;
+  }
+
+  svg {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    /* Lo mueve al centro del contenedor */
+    transform: translateX(-50%);
+    z-index: 90;
+    opacity: 0.3;
+    padding: 0;
+    margin: 0;
+    height: 6cap;
+
+
+  }
+
+}
 // ── SHARED ──
 .navbar {
   &__logo {
@@ -8,12 +126,6 @@
     top: 1.5rem;
     left: 2rem;
     z-index: 100;
-    font-family: $font-display;
-    font-size: 1.4rem;
-    letter-spacing: 0.15em;
-    color: $color-bone;
-
-    span { color: $color-ember; }
   }
 }
 
@@ -70,14 +182,20 @@
     cursor: pointer;
 
     &:hover {
-      .circle-track { opacity: 1; }
-      .nav-item__dot { background: $color-bone; }
+      .circle-track {
+        opacity: 1;
+      }
+
+      .nav-item__dot {
+        background: $color-bone;
+      }
     }
   }
 
   &__svg {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 28px;
     height: 28px;
     transform: rotate(-90deg);
@@ -112,8 +230,13 @@
   }
 
   &--active {
-    .circle-track { opacity: 1; }
-    .nav-item__dot { background: $color-bone; }
+    .circle-track {
+      opacity: 1;
+    }
+
+    .nav-item__dot {
+      background: $color-bone;
+    }
   }
 }
 
@@ -142,12 +265,15 @@
       opacity: 0.3;
       transition: opacity 0.4s ease;
 
-      &:hover { opacity: 1; }
+      &:hover {
+        opacity: 1;
+      }
     }
 
     &__svg {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 60px;
       height: 60px;
       transform: rotate(-90deg);

@@ -93,13 +93,21 @@ function Hero() {
       <canvas className="hero__canvas" ref={canvasRef} />
       <div className="hero__overlay" />
       <div className="hero__content">
-        <p className="hero__eyebrow">★ La Plata - Bs As - Argentina ★</p>
-        <h1 className="hero__title">
-           ALK<span>AMAD<Logo className='logo-titulo'/></span>
-        </h1>
-        <p className="hero__sub">
-          Ahumados artesanales con fuego de quebracho y tiempo sin apuro.
-        </p>
+        <div>
+          <p className="hero__eyebrow1">AHUMADOS</p>
+          <h1 className="hero__title">
+            <span className='part1'>ALK</span>
+            <div className='part2'>AMAD <div className='container-logo'><span>lp</span><Logo className='logo-titulo' /></div></div>
+          </h1>
+          <p className="hero__eyebrow2">★ La Plata - Bs As - Argentina ★</p>
+
+        </div>
+        <div>
+          <p className="hero__sub">
+            Ahumados artesanales con fuego de quebracho y tiempo sin apuro.
+          </p>
+        </div>
+
       </div>
       <div className="hero__scroll2">
         <ScrollIndicator />
