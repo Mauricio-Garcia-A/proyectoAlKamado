@@ -73,7 +73,7 @@ function OrbitalMenu({ items = [] }) {
 
   return (
     <div className="orbital" onClick={handleBgClick}>
-      <img src='/proyectoAlKamado/Images/kamado-bg-menu-v1.png' className='image-bg-orbital'/>
+      <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2.png' className='image-bg-orbital'/>
 
       <div className="orbital__orbit" />
 
@@ -119,9 +119,9 @@ function OrbitalMenu({ items = [] }) {
 
             {isActive && (
               <div className="orbital__card" onClick={e => e.stopPropagation()}>
-                <span className="orbital__card-tag">{item.cat}</span>
+               
                 <div className="orbital__card-name">{item.name}</div>
-                <div className="orbital__card-price">{item.price}</div>
+                <img src='/proyectoAlKamado/Images/img-asado-prueba.png' />
                 <p className="orbital__card-desc">{item.desc}</p>
                 <div className="orbital__card-energy">
                   <div className="orbital__card-energy-label">

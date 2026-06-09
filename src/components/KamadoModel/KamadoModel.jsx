@@ -257,7 +257,7 @@ function FireLight() {
 
 // ── Model ───────────────────────────────────────────────────
 function Model() {
-  const { scene } = useGLTF('./kamado-3d.glb')
+  const { scene } = useGLTF('./3D/kamado-3d.glb')
   const ref = useRef()
   useFrame((_, delta) => {
     if (ref.current) ref.current.rotation.y += delta * 0.15

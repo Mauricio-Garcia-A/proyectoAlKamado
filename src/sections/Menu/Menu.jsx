@@ -1,5 +1,6 @@
 import './Menu.scss'
 import CircleButton from '../../components/CircleButton/CircleButton'
+import TapaModeloPrueba from '../../components/TapaKamadoModel/ModeloPrueba/TapaModelsPrueba'
 
 function Menu() {
   return (
@@ -7,15 +8,18 @@ function Menu() {
       <div className="menu__inner">
         <div className="menu__left">
           <p className="section-label">Lo que hacemos</p>
-          <h2 className="menu__title">EL<br />MENÚ</h2>
+          <h2 className="menu__title">EL MENÚ</h2>
           <p className="menu__desc">
             Cortes seleccionados, rubs artesanales y entre 6 y 18 horas
             de humo de quebracho. Cada plato es el resultado de un proceso
             sin atajos.
           </p>
-        </div>
-        <div className="menu__right">
           <CircleButton to="/menu" text="VER MENÚ" />
+
+        </div>
+
+        <div className="menu__right">
+          <TapaModeloPrueba />
         </div>
       </div>
     </section>

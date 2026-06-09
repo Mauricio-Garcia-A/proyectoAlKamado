@@ -166,7 +166,7 @@ function PulseRing({ offset }) {
 }
 // ── MODELO 3D ──
 function KamadoModel({ current }) {
-  const { scene } = useGLTF('./kamado-3d.glb')
+  const { scene } = useGLTF('./3D/kamado-3d.glb')
   const ref = useRef()
   const prevRef = useRef(current)
 

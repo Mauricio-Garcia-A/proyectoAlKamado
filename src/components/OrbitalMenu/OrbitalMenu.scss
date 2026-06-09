@@ -5,13 +5,15 @@
 .orbital {
   position: relative;
   //background: rgba(255, 0, 0, 0.263);
-  width: 1000px;
-  height: 1000px;
+  width: 500px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   //background: $color-char;
   //overflow: hidden;
+
+  
 
   .image-bg-orbital {
     width: 1000px;
@@ -19,8 +21,8 @@
     opacity: 0.8;
 
     /* Código para centrar */
-    top: 40%;
-    left: 49%;
+    top: 54%;
+    left: 50%;
     transform: translate(-50%, -50%);
   }
 
@@ -29,7 +31,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: radial-gradient(circle, $color-ember, color.adjust($color-ember, $lightness: -20%));
+    background: radial-gradient(circle, $color-ember, color.adjust($color-ember, $lightness: -70%));
     @include flex-center;
     z-index: 10;
     animation: pulse 2s infinite;
@@ -67,7 +69,7 @@
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    border: 1px solid rgba($color-ash, 0.1);
+    border: 1px solid rgba($color-ember, 0.5);
   }
 
   &__node {
@@ -80,11 +82,12 @@
   }
 
   &__node-inner {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border: 2px solid rgba($color-ash, 0.4);
-    background: $color-char;
+    border: 2px solid rgba($color-ash, 0.9);
+    background: rgba(255, 255, 255, 0.192);
+
     color: $color-bone;
     @include flex-center;
     transition: all 0.3s;
@@ -98,10 +101,10 @@
     }
 
     &--active {
-      background: $color-bone;
-      border-color: $color-bone;
-      color: $color-char;
+      background: rgba($color-bone, 0.15);
+      border-color: $color-ember;
       transform: scale(1.5);
+      transform: scale(1.2);
     }
 
     &--related {
@@ -113,7 +116,7 @@
 
   &__node-label {
     position: absolute;
-    top: 48px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
@@ -133,15 +136,26 @@
 
   &__card {
     position: absolute;
-    top: 60px;
+    top: 85px;
     left: 50%;
     transform: translateX(-50%);
-    width: 220px;
-    background: rgba($color-char, 0.95);
+    width: 300px;
+    height: 300px;
+    background: rgba($color-char, 0.5);
+    border-radius: 50%;
     border: 1px solid rgba($color-ash, 0.3);
     padding: 1.2rem;
     z-index: 200;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 60%;
+    }
 
     &::before {
       content: '';
