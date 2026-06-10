@@ -18,7 +18,7 @@ function Carta() {
         </div>
 
         <div className="carta__right">
-          sss
+          <img src='/proyectoAlKamado/Images/carta-portada-front.png' />
         </div>
       </div>
     </section>

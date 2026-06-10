@@ -1,0 +1,280 @@
+// src/components/CartaBook/CartaBook.scss
+
+// ── Tokens ───────────────────────────────────────────────
+$color-bg:      #1a1008;
+$color-paper:   #f5efe0;
+$color-ink:     #2c1a0e;
+$color-accent:  #c0392b;
+$color-gold:    #b8860b;
+$font-display:  'Playfair Display', Georgia, serif;
+$font-body:     'Lato', 'Helvetica Neue', sans-serif;
+
+// ── Contenedor ───────────────────────────────────────────
+.carta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.carta-libro {
+  filter: drop-shadow(0px 18px 12px rgba(0, 0, 0, 0.75));
+}
+
+// ── Página base ──────────────────────────────────────────
+.page {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: $color-paper;
+  overflow: hidden;
+
+  // react-pageflip agrega estas clases dinámicamente
+  &.--left {
+    border-right: 0;
+    border-radius: 20px 0 0 20px;
+    box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.4);
+  }
+
+  &.--right {
+    border-left: 0;
+    border-radius: 0 20px 20px 0;
+    box-shadow: inset 9px 0 30px -7px rgba(0, 0, 0, 0.5);
+  }
+
+  &--cover {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+}
+
+// ── Portada ──────────────────────────────────────────────
+.pagina-portada {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  background: black;
+  &__emblem { font-size: clamp(2rem, 6vw, 3.5rem); }
+
+  &__titulo {
+    font-family: $font-display;
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    color: $color-gold;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  &__subtitulo {
+    font-family: $font-body;
+    font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+    color: rgba($color-paper, 0.55);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__hint {
+    font-family: $font-body;
+    font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+    color: rgba($color-paper, 0.3);
+    margin-top: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+// ── Contraportada ────────────────────────────────────────
+.pagina-contraportada {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  background: $color-ink;
+
+  &__emblem { font-size: clamp(2rem, 5vw, 3rem); }
+
+  &__tagline {
+    font-family: $font-display;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: $color-gold;
+    font-style: italic;
+    margin: 0;
+  }
+
+  &__lugar {
+    font-family: $font-body;
+    font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+    color: rgba($color-paper, 0.4);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+}
+
+// ── Página de sección ────────────────────────────────────
+.pagina-seccion {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba($color-ink, 0.06) 27px,
+    rgba($color-ink, 0.06) 28px
+  );
+
+  &__header {
+    width: 85%;
+    border-bottom: 1px solid rgba($color-ink, 0.15);
+    padding: 0.8rem 0 0.4rem;
+    flex-shrink: 0;
+  }
+
+  &__categoria {
+    font-family: $font-display;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: $color-ink;
+    margin: 0;
+    padding-left: 8px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 1.8rem;
+      height: 2px;
+      background: $color-accent;
+      margin-top: 0.3rem;
+    }
+  }
+
+  &__article {
+    flex: 1;
+    width: 100%;
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.6rem, 2vw, 1.1rem);
+  }
+
+  &__item-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+  }
+
+  &__item-nombre {
+    font-family: $font-display;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    font-weight: 700;
+    color: $color-ink;
+    white-space: nowrap;
+  }
+
+  &__item-dots {
+    flex: 1;
+    border-bottom: 1px dotted rgba($color-ink, 0.3);
+    margin: 0 0.3rem 3px;
+  }
+
+  &__item-precio {
+    font-family: $font-body;
+    font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+    font-weight: 700;
+    color: $color-accent;
+    white-space: nowrap;
+  }
+
+  &__item-desc {
+    font-family: $font-body;
+    font-size: clamp(0.65rem, 1.4vw, 0.75rem);
+    color: rgba($color-ink, 0.6);
+    margin: 0.1rem 0 0;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  &__footer {
+    flex-shrink: 0;
+    width: 85%;
+    border-top: 1px solid rgba($color-ink, 0.15);
+    text-align: center;
+
+    p {
+      font-family: $font-body;
+      font-size: 0.65rem;
+      color: rgba($color-ink, 0.3);
+      margin: 0;
+      padding: 4px;
+    }
+  }
+}
+
+// ── Controles ────────────────────────────────────────────
+.carta-controles {
+  display: flex;
+  gap: clamp(1.5rem, 5vw, 3rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  justify-content: center;
+
+  &__btn {
+    background: rgba(255, 255, 255, 0.07);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: clamp(50px, 8vw, 70px);
+    height: clamp(50px, 8vw, 70px);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    &:active {
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+// ── Mobile (portrait: una sola página) ──────────────────
+@media (max-width: 767px) {
+  .carta-container {
+    padding: 0.5rem 0;
+  }
+
+  .pagina-seccion {
+    &__header { width: 90%; }
+    &__footer  { width: 90%; }
+  }
+}

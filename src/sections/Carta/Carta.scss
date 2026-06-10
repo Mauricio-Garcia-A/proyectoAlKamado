@@ -48,5 +48,9 @@
 
   &__right {
     @include flex-center;
+
+    img {
+      width: 200px;
+    }
   }
 }
