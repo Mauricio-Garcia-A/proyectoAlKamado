@@ -1,14 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home     from './pages/Home'
 import MenuPage from './pages/MenuPage'
-import Navbar   from './components/Navbar/Navbar'
 import AboutPage from './pages/AboutPage'
 import CartaPage from './pages/CartaPage'
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/proyectoAlKamado/"     element={<Home />}     />
         <Route path="/proyectoAlKamado/menu" element={<MenuPage />} />
