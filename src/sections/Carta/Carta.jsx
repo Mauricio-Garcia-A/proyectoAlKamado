@@ -5,6 +5,7 @@ import TapaModeloPrueba from '../../components/TapaKamadoModel/ModeloPrueba/Tapa
 function Carta() {
   return (
     <section className="section-standar carta" id="carta">
+      <div className="carta__overlay" />
       <div className="carta__inner">
         <div className="carta__left">
           <p className="section-label">Lo que ofrecemos</p>

@@ -5,8 +5,27 @@
 .menu {
   @include section-padding;
   //background: $color-smoke;
+  background-image: url('/Images/section-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    background: linear-gradient(to bottom,
+        rgba($color-char, 1) 0%,
+        rgba($color-char, 0.5) 50%,
+        rgba($color-char, 0.5) 50%,
+        rgba($color-char, 1) 100%);
+  }
+  
 
   &__inner {
+    position: relative;
+    z-index: 10;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;

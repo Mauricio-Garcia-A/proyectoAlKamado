@@ -6,6 +6,7 @@ import CircleButton from '../../components/CircleButton/CircleButton'
 function About() {
   return (
     <section className="section-standar about" id="nosotros">
+      <div className="about__overlay" />
       <div className="about__inner">
 
         <div>

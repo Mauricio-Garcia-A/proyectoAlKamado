@@ -5,12 +5,44 @@
 .contact {
   @include section-padding;
   background: $color-ember;
-  text-align: center;
 
+  background-image: url('/Images/background-CONTACTO.png');
+  background-size: cover;
+  background-position:bottom;
+  background-repeat: no-repeat;
+  text-align: center;
+  position: relative;
+ 
+  
+  // overlay para que el texto se lea bien sobre el fuego
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(4px);
+    background: linear-gradient(to top,
+        rgba($color-char, 0.2) 0%,
+        rgba($color-char, 0.5) 30%,
+        rgba($color-char, 0.6) 90%,
+        rgba($color-char, 1) 100%);
+     
+
+  }
+
+    img {
+      position: absolute;
+      bottom: 0;
+      z-index: 50;
+      height: 80vh;
+    }
+  .container_info {
+    position: absolute;
+    width: 50%;
+  }
   &__title {
     font-family: $font-display;
     font-size: clamp(3rem, 7vw, 7rem);
-    color: $color-char;
+    color: #ed7800;
     line-height: 0.9;
     margin-bottom: 1.5rem;
   }
@@ -18,8 +50,8 @@
   &__sub {
     font-family: $font-serif;
     font-style: italic;
-    font-size: 1.1rem;
-    color: rgba($color-char, 0.6);
+    font-size: 1.4rem;
+    color: rgba(rgb(255, 255, 255), 0.8);
     margin-bottom: 2.5rem;
   }
 
@@ -40,4 +72,24 @@
       color: $color-ember;
     }
   }
+}
+
+.texto-relleno-blur {
+  font-size: 8rem;          /* Un tamaño grande para que se note el efecto */
+  font-family: 'Arial Black', sans-serif; /* Fuentes gruesas funcionan mejor */
+  font-weight: 900;
+  
+  /* 1. Creamos un fondo con colores que simulen un blur o degradado suave */
+  background: rgba(128, 128, 128, 0.234);
+  
+  /* 2. Hacemos que el fondo solo se pinte DENTRO de las letras */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Hacemos el texto original transparente para que se vea el fondo */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* 4. Opcional: Un filtro de contraste para suavizar los colores internos */
+  filter: contrast(120%);
 }

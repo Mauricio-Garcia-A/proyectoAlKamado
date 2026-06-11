@@ -26,6 +26,8 @@ const steps = [
 function Process() {
   return (
     <section className="section-standar process" id="proceso">
+      <div className="process__overlay" />
+
       <div className="process__inner">
         <div>
           <p className="section-label">Cómo lo hacemos</p>

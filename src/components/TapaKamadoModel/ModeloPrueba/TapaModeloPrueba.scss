@@ -4,7 +4,7 @@
 .container__scene {
   position: relative;
  
-  background: $color-char;
+  //background: $color-char;
   @include flex-center;
   flex-direction: column;
   overflow: hidden;

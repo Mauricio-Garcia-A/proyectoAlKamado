@@ -5,6 +5,7 @@ import TapaModeloPrueba from '../../components/TapaKamadoModel/ModeloPrueba/Tapa
 function Menu() {
   return (
     <section className="section-standar menu" id="menu">
+      <div className="menu__overlay" />
       <div className="menu__inner">
         <div className="menu__left">
           <p className="section-label">Lo que hacemos</p>

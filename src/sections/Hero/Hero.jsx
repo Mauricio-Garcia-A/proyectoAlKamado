@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import './Hero.scss'
 import ScrollIndicator from '../../components/ScrollIndicator/ScrollIndicator'
 import Logo from '../../components/Logo/Logo'
+import videoBg from '../../../public/Videos/download.mp4'
 
 function Hero() {
   const canvasRef = useRef(null)
@@ -90,6 +91,16 @@ function Hero() {
 
   return (
     <section className="section-standar hero" id="inicio">
+      <video 
+        className="hero__video" 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+      >
+        <source src={videoBg} type="video/mp4" />
+      </video>
+      
       <canvas className="hero__canvas" ref={canvasRef} />
       <div className="hero__overlay" />
       <div className="hero__content">
