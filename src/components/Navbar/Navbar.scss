@@ -37,7 +37,7 @@
     -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.184);
     padding: 0;
     margin: 0;
-    
+
   }
 
   span {
@@ -96,7 +96,7 @@
     //-webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.184);
     padding: 0;
     margin: 0;
-    
+
   }
 
   span {
@@ -119,6 +119,7 @@
   }
 
 }
+
 // ── SHARED ──
 .navbar {
   &__logo {
@@ -300,6 +301,14 @@
       height: 6px;
       border-radius: 50%;
       background: $color-bone;
+      position: relative;
+      z-index: 1;
+    }
+
+    &__arrow {
+      width: 14px;
+      height: 14px;
+      color: $color-bone;
       position: relative;
       z-index: 1;
     }

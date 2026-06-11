@@ -91,16 +91,16 @@ function Hero() {
 
   return (
     <section className="section-standar hero" id="inicio">
-      <video 
-        className="hero__video" 
-        autoPlay 
-        loop 
-        muted 
+      <video
+        className="hero__video"
+        autoPlay
+        loop
+        muted
         playsInline
       >
         <source src={videoBg} type="video/mp4" />
       </video>
-      
+
       <canvas className="hero__canvas" ref={canvasRef} />
       <div className="hero__overlay" />
       <div className="hero__content">
@@ -120,7 +120,11 @@ function Hero() {
         </div>
 
       </div>
-      <div className="hero__scroll2">
+      <div
+        className="hero__scroll2"
+        onClick={() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' })}
+        style={{ cursor: 'pointer' }}
+      >
         <ScrollIndicator />
       </div>
       <div className="hero__scroll">
