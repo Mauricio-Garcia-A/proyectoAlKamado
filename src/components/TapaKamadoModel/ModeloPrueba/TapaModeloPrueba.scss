@@ -7,9 +7,20 @@
   //background: $color-char;
   @include flex-center;
   flex-direction: column;
-  overflow: hidden;
+  //overflow: hidden;
   height: 430px;
   width: 300px;
+
+    
+    .image-bg-orbital-part2 {
+      opacity: 1;
+      width: 400px;
+      position: absolute;
+      bottom: 55px;
+      width: 240px;
+      right: 35px;
+      transform:  scale(2);
+    }
 
   &__tapa {
     position: absolute;

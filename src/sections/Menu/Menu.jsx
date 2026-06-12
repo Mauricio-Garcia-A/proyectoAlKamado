@@ -20,7 +20,8 @@ function Menu() {
         </div>
 
         <div className="menu__right">
-          <TapaModeloPrueba />
+
+          <TapaModeloPrueba Open={false}/>
         </div>
       </div>
     </section>

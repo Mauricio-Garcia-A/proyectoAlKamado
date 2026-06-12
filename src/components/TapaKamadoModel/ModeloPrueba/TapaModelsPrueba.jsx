@@ -1,19 +1,22 @@
 import { useState } from 'react'
-import  './TapaModeloPrueba.scss'
+import './TapaModeloPrueba.scss'
 import TapaKamadoModel from '../TapaKamadoModel'
 
-export default function TapaModelsPrueba() {
-    const [isOpen, setIsOpen] = useState(false)
+export default function TapaModelsPrueba({ Open=true }) {
+  const [isOpen, setIsOpen] = useState(Open)
 
   return (
     <>
       <div className="container__scene">
+        <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2-part2.png' className='image-bg-orbital-part2' />
+
         <button
           className="container__scene__btn"
           onClick={() => setIsOpen(prev => !prev)}
         >
           {isOpen ? 'Cerrar Tapa' : 'Abrir Tapa'}
         </button>
+
         <div className="container__scene__tapa">
           <TapaKamadoModel l isOpen={isOpen} />
         </div>
