@@ -9,6 +9,7 @@ export default function TapaModelsPrueba({ Open=true }) {
     <>
       <div className="container__scene">
         <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2-part2.png' className='image-bg-orbital-part2' />
+        <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2.png' className='image-bg-orbital'/>
 
         <button
           className="container__scene__btn"

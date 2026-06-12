@@ -11,19 +11,44 @@
   align-items: center;
   justify-content: center;
   //background: $color-char;
-  //overflow: hidden;
+  //overflow: visible;
 
-  
 
-  .image-bg-orbital {
-    width: 1000px;
+  .tapa-kamado {
     position: absolute;
-    opacity: 0.8;
+    width: 200px;
+    height: 100px;
+    transform: scale(2.1);
+    top: -500px;
+    left: 45px;
+  }
+  .image-bg-orbital {
+    position: relative;
+    width: 500px;
+    height: 450px;
+    transform: scale(2);
+    //background: red;
+    &__img1 {
+      width: 250px;
+      position: absolute;
+      opacity:1;
 
+      /* Código para centrar */
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &__img2 {
+      width: 500px !important;
+      position: absolute;
+      opacity: 1;
     /* Código para centrar */
-    top: 54%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+      top: 56.5%;
+      left: 49%;
+      transform: translate(-50%, -50%),;
+
+    }
+
   }
 
   &__center {

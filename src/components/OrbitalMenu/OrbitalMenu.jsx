@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './OrbitalMenu.scss'
+import TapaKamadoModel from '../TapaKamadoModel/TapaKamadoModel'
 
 
 const RADIUS = 200
@@ -73,8 +74,14 @@ function OrbitalMenu({ items = [] }) {
 
   return (
     <div className="orbital" onClick={handleBgClick}>
-      <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2.png' className='image-bg-orbital'/>
+      <div className='image-bg-orbital'>
+        <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2.png' className='image-bg-orbital__img1'/>
+        <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2-part2.png' className='image-bg-orbital__img2'/>
+      </div>
 
+      <div className='tapa-kamado'>
+          <TapaKamadoModel isOpen={true} />
+      </div>
       <div className="orbital__orbit" />
 
       <div className="orbital__center">

@@ -37,8 +37,9 @@ function Model({ isOpen }) {
 function TapaKamadoModel({ isOpen }) {
   return (
     <div className="tapa-viewer">
-            <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2.png' className='image-bg-orbital'/>
-
+      {/*
+        <img src='/proyectoAlKamado/Images/kamado-bg-menu-v2.png' className='image-bg-orbital'/>
+      */}
       <Canvas
         camera={{ position: [0,1, 8], fov: 75 }}
         gl={{ antialias: true, alpha: true }}
