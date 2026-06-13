@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './TapaModeloPrueba.scss'
-import TapaKamadoModel from '../TapaKamadoModel'
+import TapaKamadoModel2 from './TapaKamadoModel2'
 
 export default function TapaModelsPrueba({ Open=true }) {
   const [isOpen, setIsOpen] = useState(Open)
@@ -19,7 +19,7 @@ export default function TapaModelsPrueba({ Open=true }) {
         </button>
 
         <div className="container__scene__tapa">
-          <TapaKamadoModel l isOpen={isOpen} />
+          <TapaKamadoModel2 l isOpen={isOpen} />
         </div>
       </div>
     </>

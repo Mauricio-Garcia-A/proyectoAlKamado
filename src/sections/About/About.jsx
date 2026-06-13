@@ -2,9 +2,15 @@ import './About.scss'
 import KamadoModel from '../../components/KamadoModel/KamadoModel'
 //import FeatureCarousel from '../../components/FeatureCarousel/FeatureCarousel'
 import CircleButton from '../../components/CircleButton/CircleButton'
+import FullscreenModal from '../../components/FullscreenModal/FullscreenModal'
+import AboutPage from '../../pages/AboutPage'
+import { useState } from 'react'
 
 function About() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
+    <>
     <section className="section-standar about" id="nosotros">
       <div className="about__overlay" />
       <div className="about__inner">
@@ -15,7 +21,7 @@ function About() {
           <p className="menu__desc">
             Somo un pequeño enprendimiento especializado en el metodo de copsion ahomado al kamado.
           </p>
-          <CircleButton to="/nosotros" text="SABER MAS" />
+          <CircleButton  onClick={() => setIsOpen(true)} text="SABER MAS" />
         </div>
         <div>
           <KamadoModel />
@@ -24,6 +30,16 @@ function About() {
 
       </div>
     </section>
+    
+    <FullscreenModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        layoutId="about-modal"
+      >
+        <AboutPage />
+    </FullscreenModal>
+    
+    </>
   )
 }
 

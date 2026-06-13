@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba($color-char, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+
+  &__close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 201;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba($color-bone, 0.3);
+    background: none;
+    color: $color-bone;
+    cursor: pointer;
+    @include flex-center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $color-ember;
+      color: $color-ember;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
