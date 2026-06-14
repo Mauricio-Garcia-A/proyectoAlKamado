@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './Carta.scss'
-import CircleButton    from '../../components/CircleButton/CircleButton'
+import CircleButton from '../../components/CircleButton/CircleButton'
 import TapaModeloPrueba from '../../components/TapaKamadoModel/ModeloPrueba/TapaModelsPrueba'
 import FullscreenModal from '../../components/FullscreenModal/FullscreenModal'
-import CartaPage       from '../../pages/CartaPage'
+import CartaPage from '../../pages/CartaPage'
 
 function Carta() {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +20,9 @@ function Carta() {
               Cortes seleccionados, rubs artesanales y entre 6 y 18 horas
               de humo de quebracho.
             </p>
-            <CircleButton text="VER\nCARTA" onClick={() => setIsOpen(true)} />
+            <div className='conteiner_button'>
+              <CircleButton text="VER\nCARTA" onClick={() => setIsOpen(true)} />
+            </div>
           </div>
 
           <div className="carta__right">

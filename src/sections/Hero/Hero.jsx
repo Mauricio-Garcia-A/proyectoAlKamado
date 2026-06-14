@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import './Hero.scss'
 import ScrollIndicator from '../../components/ScrollIndicator/ScrollIndicator'
 import Logo from '../../components/Logo/Logo'
-import videoBg from '../../../public/Videos/download.mp4'
+import videoBg from '../../../public/Videos/bg-Hero-2.mp4'
 
 function Hero() {
   const canvasRef = useRef(null)

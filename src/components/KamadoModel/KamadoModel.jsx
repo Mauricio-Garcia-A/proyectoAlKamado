@@ -285,7 +285,7 @@ function KamadoModel() {
           <EmberParticles />
           {/* Luz animada de fuego interior — flickering orgánico */}
           <FireLight />
-          <ContactShadows position={[0, -1.5, 0]} opacity={0.4} scale={6} blur={2} />
+          <ContactShadows position={[0, -1, 0]} opacity={0.3} scale={6} blur={2} />
           <Environment preset="sunset" />
           <OrbitControls
             enableZoom={false}

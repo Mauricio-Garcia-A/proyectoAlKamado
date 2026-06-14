@@ -3,6 +3,19 @@ import './Contact.scss'
 function Contact() {
   return (
     <section className="section-standar contact" id="contacto">
+
+      <video
+        className="contact__video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="./Videos/contact-bg.mp4" type="video/mp4" />
+      </video>
+
+      <div className="contact__overlay" />
+
       <div className='container_info'>
         <h2 className="contact__title">
           ¿LISTO PARA<br />COMER EN SERIO?
@@ -18,7 +31,6 @@ function Contact() {
         >
           Escribinos por WhatsApp
         </a>
-
       </div>
 
       <img src='./Images/img-contact.png' />

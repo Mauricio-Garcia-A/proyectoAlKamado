@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './Menu.scss'
-import CircleButton    from '../../components/CircleButton/CircleButton'
+import CircleButton from '../../components/CircleButton/CircleButton'
 import TapaModeloPrueba from '../../components/TapaKamadoModel/ModeloPrueba/TapaModelsPrueba'
 import FullscreenModal from '../../components/FullscreenModal/FullscreenModal'
-import MenuPage        from '../../pages/MenuPage'
+import MenuPage from '../../pages/MenuPage'
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,7 +21,9 @@ function Menu() {
               de humo de quebracho. Cada plato es el resultado de un proceso
               sin atajos.
             </p>
-            <CircleButton text="VER\nMENÚ" onClick={() => setIsOpen(true)} />
+            <div className='conteiner_button'>
+              <CircleButton text="VER\nMENÚ" onClick={() => setIsOpen(true)} />
+            </div>
           </div>
 
           <div className="menu__right">
