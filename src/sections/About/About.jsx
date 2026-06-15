@@ -25,9 +25,8 @@ function About() {
               <CircleButton onClick={() => setIsOpen(true)} text="SABER MAS" />
             </div>
           </div>
-          <div>
+          <div className='section-kamado3d'>
             <KamadoModel />
-
           </div>
 
         </div>

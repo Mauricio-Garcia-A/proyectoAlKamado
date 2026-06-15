@@ -4,11 +4,12 @@
 .kamado-viewer {
   position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 0.6;
   background: transparent;
 
   @include respond-to(tablet) {
-    aspect-ratio: 4/3;
+    width: 300px;
+    aspect-ratio: 0.6;
   }
 
   canvas {
