@@ -29,11 +29,17 @@
     justify-content: center;
     align-items: center;
   }
-
+  .section-info {
+    position: relative;
+    z-index: 5;
+  }
   .section-kamado3d {
+    position: relative;
+    z-index: 3;
     //background: red;
 
     @include respond-to(tablet) {
+      width: 250px;
       margin-top: -80px;
       margin-bottom: -80px;
       //background: green;

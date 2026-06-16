@@ -8,7 +8,7 @@
   background: transparent;
 
   @include respond-to(tablet) {
-    width: 300px;
+    //width: 300px;
     aspect-ratio: 0.6;
   }
 

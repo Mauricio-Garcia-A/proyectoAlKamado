@@ -15,7 +15,7 @@ function About() {
         <div className="about__overlay" />
         <div className="about__inner">
 
-          <div>
+          <div className='section-info'>
             <p className="section-label">Nuestra historia</p>
             <h2 className="menu__title">QUIENES SOMOS</h2>
             <p className="menu__desc">
