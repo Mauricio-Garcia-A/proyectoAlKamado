@@ -2,6 +2,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@300;400;600;700&display=swap');
 
+@font-face {
+  font-family: 'dfr';
+  src: url('../assets/fonts/dzr.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Mejora el rendimiento de carga */
+}
+@font-face {
+  font-family: 'bbq';
+  src: url('../assets/fonts/BBQ.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Mejora el rendimiento de carga */
+}
+
 h1, h2, h3, h4 {
   font-family: $font-display;
   line-height: 0.9;

@@ -104,18 +104,23 @@ function Hero() {
       <canvas className="hero__canvas" ref={canvasRef} />
       <div className="hero__overlay" />
       <div className="hero__content">
-        <div>
+        <div className='container-titulo'>
           <p className="hero__eyebrow1">AHUMADOS</p>
           <h1 className="hero__title">
             <span className='part1'>ALK</span>
-            <div className='part2'>AMAD <div className='container-logo'><span>lp</span><Logo className='logo-titulo' /></div></div>
+            <div className='part2'>AMAD <div className='container-logo'><span>LP</span><Logo className='logo-titulo' /></div></div>
           </h1>
-          <p className="hero__eyebrow2">★ La Plata - Bs As - Argentina ★</p>
+          <p className="hero__eyebrow2"><span>★</span> La Plata - Bs As - Argentina <span>★</span></p>
 
         </div>
-        <div>
+        <div className='container-slogan'>
           <p className="hero__sub">
-            Ahumados artesanales con fuego de quebracho y tiempo sin apuro.
+            La evolución del asado
+            <br />
+            <span>
+              El siguiente nivel del sabor, donde el ahumado se vuelve un arte.
+            </span>
+         
           </p>
         </div>
 

@@ -8,21 +8,25 @@
   min-height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 3rem 5rem;
+  justify-content: start;
+  //padding: 0 3rem 5rem;
   overflow: hidden;
-  
+
   // 1. ELIMINAMOS ESTAS LÍNEAS (O las dejamos de fallback por si falla el video):
   background-image: url('/Images/background-HERO.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+
   // FALLBACK OBLIGATORIO: Pon una imagen o un color oscuro de fondo por si el video tarda en cargar
-  background-color: #1a1a1a; 
+  background-color: #1a1a1a;
 
   @include respond-to(tablet) {
-    padding: 0 1.5rem 4rem;
+    //padding: 0 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 
   // 2. NUEVA CLASE PARA EL VIDEO
@@ -32,7 +36,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover; // Esto hace la magia del 'background-size: cover'
-    z-index: 0;        // Va al fondo de todo
+    z-index: 0; // Va al fondo de todo
   }
 
   &__canvas {
@@ -40,28 +44,56 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;        // Las partículas flotan POR ENCIMA del video
+    z-index: 1; // Las partículas flotan POR ENCIMA del video
     pointer-events: none; // Evita que interfiera con clicks
   }
 
   &__overlay {
     position: absolute;
     inset: 0;
-    z-index: 1;        // El degradado oscuro se aplica sobre el video y las partículas
+    z-index: 1; // El degradado oscuro se aplica sobre el video y las partículas
     background: linear-gradient(to top,
         rgba($color-char, 1) 0%,
-        rgba($color-char, 0.6) 30%,
-        rgba($color-char, 0.2) 100%);
+        rgba($color-char, 0.6) 20%,
+        rgba($color-char, 0.6) 40%,
+        rgba($color-char, 0.5) 60%,
+        rgba($color-char, 0) 100%);
   }
 
   &__content {
     position: relative;
-    z-index: 2;        // El texto queda arriba de todo el mundo
+    z-index: 2; // El texto queda arriba de todo el mundo
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
     gap: 3rem;
+
+    .container-titulo {
+      padding-top: 50px;
+      padding-left: 50px;
+
+      @include respond-to(tablet) {
+        padding: 0;
+        margin-top: -60px;
+        transform: scale(0.6);
+      }
+    }
+
+    .container-slogan {
+      width: 40%;
+      padding-top: 150px;
+
+      @include respond-to(tablet) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        padding-top: 0px;
+        transform: scale(0.7);
+
+      }
+    }
 
     @include respond-to(tablet) {
       flex-direction: column;
@@ -69,13 +101,13 @@
   }
 
   &__eyebrow1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    letter-spacing: 0.55em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     color: black;
     margin-left: 3.6rem;
-    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.186);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.453);
 
     opacity: 0;
     animation: fadeUp 0.8s 0.3s forwards;
@@ -83,14 +115,27 @@
   }
 
   &__eyebrow2 {
+    white-space: nowrap;
     font-size: 1.1rem;
-    font-weight: 900;
+    font-weight: 600;
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.64);
     //margin-bottom: 1rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.3s forwards;
+    background: rgba(0, 0, 0, 0.816);
+    border-radius: 20px;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    backdrop-filter: blur(5px);
+
+    span {
+      color: #8D2002;
+
+    }
+
   }
 
   &__title {
@@ -106,13 +151,15 @@
       margin-left: 2rem;
       font-size: 11.5rem;
       line-height: 0.8;
+      text-shadow: 5px 5px 8px rgba(black, 1);
+
     }
 
     .part2 {
       display: block;
       font-size: 13rem;
       color: $color-ember;
-      text-shadow: 0 0 80px rgba($color-ember, 0.4);
+      text-shadow: 5px 5px 8px rgba(rgb(74, 18, 2), 1);
       line-height: 0.8;
       display: flex;
       flex-direction: row;
@@ -121,14 +168,20 @@
     .container-logo {
       position: relative;
       height: 140px;
+      filter: drop-shadow(5px 5px 4px rgba(74, 18, 2, 1));
 
       span {
-        font-size: 3rem;
-        color: rgba(255, 255, 255, 0.567);
+        font-size: 3.6rem;
+        font-weight: 100;
+        letter-spacing: 0.0em;
+        text-transform: uppercase;
+        font-family: 'dfr', system-ui, sans-serif;
+        color: rgba(255, 255, 255, 0.403);
         position: absolute;
-        bottom: 0;
+        bottom: 20px;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-45%);
+        text-shadow: none;
       }
 
       .logo-titulo {
@@ -140,15 +193,27 @@
   }
 
   &__sub {
-    font-family: $font-serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: $color-ash;
-    max-width: 340px;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
+    text-align: center;
+    font-family: 'bbq';
+    //font-style: block;
+    font-size: 3.2rem;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.612);
+    width: 100%;
+    max-width: 500px;
+    line-height: 0.8;
+    margin-bottom: 0rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.7s forwards;
+    text-shadow: 2px 2px 2px rgba(rgb(0, 0, 0), 1);
+
+
+    span {
+      font-size: 1.5rem;
+      color: rgba(201, 48, 1, 0.805);
+      text-align: center;
+    }
   }
 
   &__cta {
@@ -208,6 +273,9 @@
     color: $color-ash;
     writing-mode: vertical-rl;
   }
+
+
+
 }
 
 @keyframes fadeUp {
