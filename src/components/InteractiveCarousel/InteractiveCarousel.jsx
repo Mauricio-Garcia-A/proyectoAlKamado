@@ -9,24 +9,29 @@ import './InteractiveCarousel.scss'
 const slides = [
   {
     num: '01',
-    title: 'Fuego de\nQuebracho',
-    desc: 'Usamos exclusivamente leña de quebracho colorado, la madera más densa de Argentina. Arde lento, da calor parejo y un humo que perfuma la carne desde adentro.',
+    title: 'Sabores unicos',
+    desc: 'En ALKAMADO somos especialistas con años de experiencia en el arte del ahumado. Dominamos la cocción en el kamado para lograr sabores y aromas únicos que no vas a conseguir con ningún otro método.',
+    image: './Images/s1-slide-1.png',
   },
   {
     num: '02',
-    title: 'Cortes de\nPrimera',
-    desc: 'Seleccionamos cada pieza directamente con productores locales. Solo trabajamos con animales de pastoreo, criados sin apuro, igual que nuestro proceso.',
+    title: 'Que es un Kamado',
+    desc: 'Es un asador de origen Japonés, con la capacidad de absorción, retención y emisión de calor, controlada con presicion que lo vuelve muy versátil para asar, ahumar, hornear o grillar alimentos.',
+    image: './Images/s1-slide-2.png',
   },
   {
     num: '03',
-    title: 'Rubs\nArtesanales',
-    desc: 'Nuestras mezclas de especias se tuestan y muelen a mano cada semana. Sin conservantes, sin mezclas industriales. Solo sabor real.',
+    title: 'Opciones de Ahumados',
+    desc: 'Nuestra propuesta abarca desde cortes vacunos, porcinos y de ave, hasta opciones más sutiles como pescados selectos, vegetales asados y pizzas artesanales.',
+    image: './Images/s1-slide-3.png',
   },
   {
     num: '04',
-    title: 'Tiempo Sin\nApuro',
-    desc: 'Entre 6 y 18 horas de cocción a baja temperatura. No hay atajos. La paciencia es el ingrediente principal de cada corte que servimos.',
+    title: 'Tipo de astillas',
+    desc: 'Utilizamos diferentes tipos de astillas dependiendo del corte y el tipo de carne seleccionados, controlando la intensidad del ahumado para no invadir la delicadeza de su sabor. El tipo de astilla define el carácter de cada plato, aportándole aromas y sabores únicos.',
+    image: './Images/s1-slide-4.png',
   },
+
 ]
 
 
@@ -66,7 +71,7 @@ function OrbitalRing({ current, onSelect }) {
   })
 
   return (
-    <group ref={groupRef} position={[0, 0.25, 0]} rotation={[3.5,3.5, 0]}>
+    <group ref={groupRef} position={[0, 0.25, 0]} rotation={[3.5, 3.5, 0]}>
       {/* anillo punteado */}
       {Array.from({ length: 100 }).map((_, i) => {
         const angle = (i / 100) * Math.PI * 2
@@ -184,7 +189,7 @@ function KamadoModel({ current }) {
 
     // animación de cámara al cambiar slide
     gsap.to(ref.current.rotation, {
-     // y: ref.current.rotation.y + Math.PI * 0.25,
+      // y: ref.current.rotation.y + Math.PI * 0.25,
       duration: 0.8,
       ease: 'power2.inOut',
     })
@@ -281,8 +286,14 @@ function InteractiveCarousel() {
 
       <div className="icarousel__content">
         <div className="icarousel__slide" ref={contentRef}>
-          <p className="icarousel__slide-num">{slide.num}</p>
+          {slide.image && (
+            <div className="icarousel__slide-cover">
+              <img src={slide.image} alt={slide.title} />
+            </div>
+          )}
+          
           <h3 className="icarousel__slide-title">
+            <span className="icarousel__slide-num">{slide.num}</span>
             {slide.title.split('\n').map((line, i) => (
               <span key={i}>{line}<br /></span>
             ))}
