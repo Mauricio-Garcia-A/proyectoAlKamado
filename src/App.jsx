@@ -3,9 +3,13 @@ import Home     from './pages/Home'
 import MenuPage from './pages/MenuPage'
 import AboutPage from './pages/AboutPage'
 import CartaPage from './pages/CartaPage'
+import AppLoader from './components/AppLoader/AppLoader'
 
 function App() {
   return (
+    <AppLoader>
+
+    
     <BrowserRouter>
       <Routes>
         <Route path="/proyectoAlKamado/"     element={<Home />}     />
@@ -19,6 +23,7 @@ function App() {
          <Route path="/carta" element={<CartaPage />} />
       </Routes>
     </BrowserRouter>
+    </AppLoader>
   )
 }
 
