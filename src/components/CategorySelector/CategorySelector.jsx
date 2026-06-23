@@ -6,13 +6,13 @@ import IconApicola from '../Icons/IconApicola'
 import IconOtros from '../Icons/IconOtros'
 import IconPeces from '../Icons/IconPeces'
 const categories = [
-  {
+  /*{
     cat: 'all',
     label: 'Todo',
     icon: (
-      <IconPeces />
+      <>Todo</>
     ),
-  },
+  },*/
   {
     cat: 'vacuno',
     label: 'Vacuno',
@@ -32,6 +32,13 @@ const categories = [
     label: 'Pollo',
     icon: (
       <IconApicola />
+    ),
+  },
+  {
+    cat: 'pescado',
+    label: 'pescado',
+    icon: (
+      <IconPeces />
     ),
   },
   {
