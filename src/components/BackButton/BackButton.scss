@@ -1,0 +1,29 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.back-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba($color-bone, 0.3);
+  background: rgba($color-char, 0.8);
+  color: $color-bone;
+  cursor: pointer;
+  @include flex-center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    border-color: $color-ember;
+    color: $color-ember;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
